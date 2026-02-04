@@ -18,8 +18,8 @@ body {
 
 /* Header stilarter */
 header {
-    background-color: #4CAF50; /* Ændret til grøn */
-    color: white;
+    background-color: #8ddbf3; /*  */
+    color: #0c1367;
     padding: 10px 0;
     text-align: center;
     width: 100%; /* Fylder containerens bredde */
@@ -85,8 +85,7 @@ article p {
 }
 
 .image {
-    width: 500px;
-    height: 300px;
+    width: 100%;
 }
 
 /* Sideindhold stilarter */
@@ -122,7 +121,7 @@ aside ul li a {
 
 /* Footer stilarter */
 footer {
-    background-color: #3771e0;
+    background-color: #289f31;
     color: white;
     text-align: center;
     padding: 10px 0;
@@ -130,6 +129,18 @@ footer {
 
 }
 
-footer p {
-    margin: 0;
+footer ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+footer ul li {
+    margin: 0 15px;
+}
+
+footer a {
+    color: white;
+    text-decoration: underline;
 }

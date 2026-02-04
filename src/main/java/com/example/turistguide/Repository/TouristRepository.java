@@ -15,9 +15,9 @@ public class TouristRepository {
     }
 
     private void populate(){
-        attractions.add(new TouristAttraction("Tivoli", "forlystelsespark"));
-        attractions.add(new TouristAttraction("Bakken", "samlested"));
-        attractions.add(new TouristAttraction("Tårnet", "gammelt tårn"));
+        attractions.add(new TouristAttraction("Tivoli", "En populær forlystelsespark"));
+        attractions.add(new TouristAttraction("Bakken", "Et samlingspunkt og forlystelsespark"));
+        attractions.add(new TouristAttraction("Tårnet", "Et gammelt tårn"));
     }
 
     public List<TouristAttraction> getAttractions(){
