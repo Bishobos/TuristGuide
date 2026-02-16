@@ -1,11 +1,13 @@
 package com.example.turistguide.Controller;
 
+import com.example.turistguide.Model.AttractionTags;
 import com.example.turistguide.Model.TouristAttraction;
 import com.example.turistguide.Repository.TouristRepository;
 import com.example.turistguide.Service.TouristService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,10 +32,18 @@ public class TouristController {
         return new ResponseEntity<>(service.getAttractionByName(name), HttpStatus.OK);
     }
 
-    @PostMapping("/add")
-    public ResponseEntity<String> addAttraction(@RequestBody TouristAttraction touristAttraction){
+    @GetMapping("/add")
+    public String addAttraction(Model model){
+        TouristAttraction attraction = new TouristAttraction();
+        model.addAttribute("attraction", attraction);
+        model.addAttribute("tags", AttractionTags.values());
+        return "registration-form";
+    }
 
-        return new ResponseEntity<>(service.addAttraction(touristAttraction), HttpStatus.CREATED);
+    @PostMapping("add")
+    public String add(@ModelAttribute TouristAttraction touristAttraction){
+        service.addAttraction(touristAttraction);
+        return "redirect:/attractions";
     }
 
     @PostMapping("/update")
