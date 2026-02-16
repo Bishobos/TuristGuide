@@ -15,7 +15,7 @@ public class TouristRepository {
     }
 
     private void populate(){
-        attractions.add(new TouristAttraction("Tivoli", "En populær forlystelsespark"));
+        attractions.add(new TouristAttraction("Tivoli", "En populær forlystelsespark", "København", List.of("Børnevenlig")));
         attractions.add(new TouristAttraction("Bakken", "Et samlingspunkt og forlystelsespark"));
         attractions.add(new TouristAttraction("Tårnet", "Et gammelt tårn"));
     }
@@ -42,7 +42,7 @@ public class TouristRepository {
 
     public String updateAttraction(TouristAttraction touristAttraction){
         for (int i = 0; i < attractions.size(); i++) {
-            if(attractions.get(i).equals(touristAttraction)){
+            if(attractions.get(i).getName().equals(touristAttraction.getName())){
                 attractions.set(i, touristAttraction);
                 return attractions.get(i).getName() + " updated!";
             }
