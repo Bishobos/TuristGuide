@@ -6,6 +6,7 @@ import com.example.turistguide.Service.TouristService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,9 +16,11 @@ import java.util.List;
 public class TouristController {
 
     private final TouristService service;
+    private final TouristRepository touristRepository;
 
-    public TouristController(TouristService service){
+    public TouristController(TouristService service, TouristRepository touristRepository){
      this.service = service;
+        this.touristRepository = touristRepository;
     }
 
     @GetMapping
@@ -45,6 +48,16 @@ public class TouristController {
     @PostMapping("/delete/{name}")
     public ResponseEntity<String> deleteAttraction(@PathVariable String name){
         return new ResponseEntity<>(service.deleteAttraction(name), HttpStatus.OK);
+    }
+
+    @GetMapping("/{name}/tags")
+    public String getAttractionsTag(@PathVariable String name, Model model){
+        TouristAttraction attraction = touristRepository.getAttractionByName(name);
+        if(attraction != null){
+            model.addAttribute("attraction",attraction);
+            model.addAttribute("tags",attraction.getTags());
+        }
+        return "tags";
     }
 
 }

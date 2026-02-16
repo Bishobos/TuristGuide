@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="da" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>[[${attraction.name}]] Tags</title>
+    <link th:href="@{/style.css}" rel="stylesheet">
+</head>
+<body>
+<h1 th text="'Tags for ' + ${attraction.name}">Tags for attraktion</h1>
+
+<div class="tags-container">
+    <h2>Tags:</h2>
+    <ul>
+        <li th:each="tag : ${tags}" th:text="${tag}">Tag</li>
+        <li th:if="${tags.isEmpty()}">Ingen tags tilføjet</li>
+    </ul>
+
+    <form action="#" th:action="@{/attractions}">
+        <button type="submit">Tilbage</button>
+    </form>
+
+</body>
+</html>

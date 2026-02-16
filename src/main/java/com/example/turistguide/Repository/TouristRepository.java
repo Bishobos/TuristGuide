@@ -59,4 +59,8 @@ public class TouristRepository {
         }
         return " Attraction not found :(";
     }
+
+    public List<String> getTags(){
+        return allTags;
+    }
 }
