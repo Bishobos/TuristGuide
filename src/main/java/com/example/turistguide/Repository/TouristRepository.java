@@ -16,8 +16,8 @@ public class TouristRepository {
 
     private void populate(){
         attractions.add(new TouristAttraction("Tivoli", "En populær forlystelsespark", "København", List.of("Børnevenlig")));
-        attractions.add(new TouristAttraction("Bakken", "Et samlingspunkt og forlystelsespark"));
-        attractions.add(new TouristAttraction("Tårnet", "Et gammelt tårn"));
+        attractions.add(new TouristAttraction("Bakken", "Et samlingspunkt og forlystelsespark", "Klambemborg", List.of()));
+        attractions.add(new TouristAttraction("Tårnet", "Et gammelt tårn", "København", List.of()));
     }
 
     public List<TouristAttraction> getAttractions(){
