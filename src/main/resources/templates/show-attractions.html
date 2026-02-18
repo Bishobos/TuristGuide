@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Attractions</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+
+<body>
+<h1>Turistattraktioner</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th> Navn </th>
+        <th> Beskrivelse </th>
+        <th>  </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="attraction: ${attractions}">
+        <td>
+            <a th:href="@{/attractions/{name}(name=${attraction.name})}" th:text="${attraction.name}"></a>
+        </td>
+        <td th:text="${attraction.description}"></td>
+        <td>
+            <form action="#" th:action="@{/attractions/name/tags}">
+                <button type="submit">Tags</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
