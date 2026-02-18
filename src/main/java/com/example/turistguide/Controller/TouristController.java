@@ -24,8 +24,10 @@ public class TouristController {
     }
 
     @GetMapping
-    public ResponseEntity<List<TouristAttraction>> getAttractions(){
-        return new ResponseEntity<>(service.getAttractions(), HttpStatus.OK);
+    public String getAttractions(Model model) {
+        List<TouristAttraction> attractions = service.getAttractions();
+        model.addAttribute("attractions", attractions);
+        return "show-attractions";
     }
 
     @GetMapping("/{name}")

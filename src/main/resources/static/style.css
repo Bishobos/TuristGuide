@@ -144,3 +144,14 @@ footer a {
     color: white;
     text-decoration: underline;
 }
+
+/*til show-attractions viewet */
+table, th, td{
+    border-style: solid;
+    border-color: black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 5px;
+}
