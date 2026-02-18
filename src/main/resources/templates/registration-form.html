@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration form</title>
+    <link th:href="@{/style.css}" rel="stylesheet">
+</head>
+<body>
+
+<form action="#" th:action="@{/attractions/save}" th:object="${attraction}" method="post">
+    <label>
+        Name:
+        <input type="text" th:field="*{name}">
+        <br>
+    </label>
+    <label>
+        Description:
+        <input type="text" th:field="*{description}">
+        <br>
+    </label>
+    <label>
+        Location:
+        <input type="text" th:field="*{location}">
+        <br>
+    </label>
+    <label>
+        Select tags:
+        <select th:field="*{tags}" size="1" multiple>
+            <option th:each="tag: ${tags}" th:value="${tag}" th:text="${tag}"></option>
+        </select>
+    </label>
+    <br>
+    <button type="submit" style="float:left">Register</button>
+    <a th:href="@{/attractions}"><button type="button" style="float:left">Cancel</button></a>
+</form>
+
+</body>
+</html>
