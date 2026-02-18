@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<form action="#" th:action="@{/attractions/add}" th:object="${attraction}" method="post">
+<form action="#" th:action="@{/attractions/save}" th:object="${attraction}" method="post">
     <label>
         Name:
         <input type="text" th:field="*{name}">

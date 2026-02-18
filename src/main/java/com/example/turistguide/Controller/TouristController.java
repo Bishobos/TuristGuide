@@ -40,7 +40,7 @@ public class TouristController {
         return "registration-form";
     }
 
-    @PostMapping("add")
+    @PostMapping("/save")
     public String add(@ModelAttribute TouristAttraction touristAttraction){
         service.addAttraction(touristAttraction);
         return "redirect:/attractions";
