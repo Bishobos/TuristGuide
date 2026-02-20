@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+
+</head>
+<body>
+
+<form action="#" th:action="@{/attractions/update}" th:object="${attraction}" method="post">
+    <label>
+        Name:
+        <input type="text" th:field="*{name}" readonly>
+        <br>
+    </label>
+    <label>
+        Description:
+        <input type="text" th:field="*{description}">
+        <br>
+    </label>
+    <label>
+        Location:
+        <input type="text" th:field="*{location}">
+        <br>
+    </label>
+    <label>
+        Select tags:
+        <select th:field="*{tags}" size="1" multiple>
+            <option th:each="tag: ${tags}" th:value="${tag}" th:text="${tag}"></option>
+        </select>
+    </label>
+    <br>
+    <button type="submit" style="float:left">Confirm Edit</button>
+    <a th:href="@{/attractions}"><button type="button" style="float:left">Cancel</button></a>
+</form>
+
+</body>
+</html>

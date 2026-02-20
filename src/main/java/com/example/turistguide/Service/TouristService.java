@@ -19,6 +19,9 @@ public class TouristService {
     }
 
     public TouristAttraction getAttractionByName(String name){
+        if(name==null){
+            throw new RuntimeException();
+        }
         return repository.getAttractionByName(name);
     }
 
