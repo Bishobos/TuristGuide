@@ -17,9 +17,10 @@ public class TouristController {
 
     private final TouristService service;
 
-    public TouristController(TouristService service){
-     this.service = service;
+    public TouristController(TouristService service) {
+        this.service = service;
     }
+
 
     @GetMapping
     public String getAttractions(Model model) {
@@ -64,6 +65,14 @@ public class TouristController {
     @PostMapping("/delete/{name}")
     public ResponseEntity<String> deleteAttraction(@PathVariable String name){
         return new ResponseEntity<>(service.deleteAttraction(name), HttpStatus.OK);
+    }
+
+    @GetMapping("/{name}/tags")
+    public String getAttractionsTag(@PathVariable String name, Model model){
+        TouristAttraction attraction = service.getAttractionByName(name);
+            model.addAttribute("attraction",attraction);
+            model.addAttribute("tags",attraction.getTags());
+        return "tags";
     }
 
 }
