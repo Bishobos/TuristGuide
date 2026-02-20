@@ -16,12 +16,11 @@ import java.util.List;
 public class TouristController {
 
     private final TouristService service;
-    private final TouristRepository touristRepository;
 
-    public TouristController(TouristService service, TouristRepository touristRepository){
-     this.service = service;
-        this.touristRepository = touristRepository;
+    public TouristController(TouristService service) {
+        this.service = service;
     }
+
 
     @GetMapping
     public String getAttractions(Model model) {
@@ -54,11 +53,9 @@ public class TouristController {
 
     @GetMapping("/{name}/tags")
     public String getAttractionsTag(@PathVariable String name, Model model){
-        TouristAttraction attraction = touristRepository.getAttractionByName(name);
-        if(attraction != null){
+        TouristAttraction attraction = service.getAttractionByName(name);
             model.addAttribute("attraction",attraction);
             model.addAttribute("tags",attraction.getTags());
-        }
         return "tags";
     }
 

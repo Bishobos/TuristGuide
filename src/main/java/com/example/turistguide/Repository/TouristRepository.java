@@ -27,7 +27,7 @@ public class TouristRepository {
     public TouristAttraction getAttractionByName(String name){
 
         for (TouristAttraction attraction : attractions){
-            if (attraction.getName().equals(name)){
+            if (attraction.getName().equalsIgnoreCase(name)){
                 return attraction;
             }
         }
@@ -58,9 +58,5 @@ public class TouristRepository {
             }
         }
         return " Attraction not found :(";
-    }
-
-    public List<String> getTags(){
-        return allTags;
     }
 }

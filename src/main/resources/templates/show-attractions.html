@@ -24,9 +24,9 @@
         </td>
         <td th:text="${attraction.description}"></td>
         <td>
-            <form action="#" th:action="@{/attractions/name/tags}">
+            <a th:href="@{/attractions/{name}/tags}">
                 <button type="submit">Tags</button>
-            </form>
+            </a>
         </td>
     </tr>
     </tbody>
