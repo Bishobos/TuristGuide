@@ -48,7 +48,13 @@ public class TouristAttraction {
         return description;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     @Override
     public boolean equals(Object o) {

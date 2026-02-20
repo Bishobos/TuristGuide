@@ -2,7 +2,6 @@ package com.example.turistguide.Controller;
 
 import com.example.turistguide.Model.AttractionTags;
 import com.example.turistguide.Model.TouristAttraction;
-import com.example.turistguide.Repository.TouristRepository;
 import com.example.turistguide.Service.TouristService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -43,6 +42,14 @@ public class TouristController {
         return "registration-form";
     }
 
+    @GetMapping("/{name}/edit")
+    public String editAttraction(@PathVariable String name, Model model){
+        TouristAttraction attraction = service.getAttractionByName(name);
+        model.addAttribute("attraction", attraction);
+        model.addAttribute("tags", AttractionTags.values());
+        return "edit-attraction";
+    }
+
     @PostMapping("/save")
     public String add(@ModelAttribute TouristAttraction touristAttraction){
         service.addAttraction(touristAttraction);
@@ -50,9 +57,9 @@ public class TouristController {
     }
 
     @PostMapping("/update")
-    public ResponseEntity<String> updateAtraction(@RequestBody TouristAttraction touristAttraction){
-
-        return new ResponseEntity<>(service.updateAttraction(touristAttraction), HttpStatus.OK);
+    public String updateAttraction(@ModelAttribute TouristAttraction touristAttraction){
+        service.updateAttraction(touristAttraction);
+        return "redirect:/attractions";
     }
 
     @PostMapping("/delete/{name}")
