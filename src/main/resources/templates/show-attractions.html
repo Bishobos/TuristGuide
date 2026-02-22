@@ -24,13 +24,23 @@
         </td>
         <td th:text="${attraction.description}"></td>
         <td>
-            <a th:href="@{/attractions/{name}/tags}">
+            <a th:href="@{/attractions/{name}/edit(name=${attraction.name})}">
+                <button type="submit">Opdater</button>
+            </a>
+            <a th:href="@{/attractions/delete/{name}(name=${attraction.name})}">
+                <button type="submit">Slet</button>
+            </a>
+            <a th:href="@{/attractions/{name}/tags(name=${attraction.name})}">
                 <button type="submit">Tags</button>
             </a>
         </td>
     </tr>
     </tbody>
 </table>
+<a th:href="@{/attractions/add}">
+    <button type="submit">Tilføj attraktion</button>
+</a>
+
 
 </body>
 </html>

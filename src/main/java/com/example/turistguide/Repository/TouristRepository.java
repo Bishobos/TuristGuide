@@ -59,4 +59,14 @@ public class TouristRepository {
         }
         return " Attraction not found :(";
     }
+
+    public void edit(TouristAttraction editedTouristAttraction){
+        TouristAttraction existingAttraction = getAttractionByName(editedTouristAttraction.getName());
+        if(existingAttraction !=null) {
+            existingAttraction.setDescription(editedTouristAttraction.getDescription());
+            existingAttraction.setTags(editedTouristAttraction.getTags());
+            existingAttraction.setLocation(editedTouristAttraction.getLocation());
+
+        }
+    }
 }

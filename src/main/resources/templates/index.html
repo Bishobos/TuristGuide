@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Tourist Guide</title>
-    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/style.css}">
 </head>
 <body>
 <div class="container">
@@ -31,8 +31,8 @@
             <header>
                 <h2>Tivoli</h2>
             </header>
-            <p><img src="tivoli.jpg" alt="et billede af tivoli" class="image">
-                <a href="http://localhost:8080/attractions/Tivoli">Beskrivelse</a></p>
+            <p><img th:src="@{/img/tivoli.jpg}" alt="et billede af tivoli" class="image">
+                <a th:href="@{/attractions/Tivoli}">Beskrivelse</a></p>
             <footer>
                 <p>Lokation: <a href="#location">Danmark, København</a></p>
             </footer>
@@ -42,8 +42,8 @@
             <header>
                 <h2>Bakken</h2>
             </header>
-            <p><img src="bakken.jpg" alt="et billede af bakken" class="image">
-                <a href="http://localhost:8080/attractions/Bakken">Beskrivelse</a></p>
+            <p><img th:src="@{/img/bakken.jpg}" alt="et billede af bakken" class="image">
+                <a th:href="@{/attractions/Bakken}">Beskrivelse</a></p>
             <footer>
                 <p>Lokation: <a href="#location">Danmark, Klampenborg</a></p>
             </footer>
@@ -53,8 +53,8 @@
             <header>
                 <h2>Tårnet</h2>
             </header>
-            <p><img src="tårnet.jpg" alt="et billede af tårnet" class="image">
-                <a href="http://localhost:8080/attractions/Tårnet">Beskrivelse</a></p>
+            <p><img th:src="@{/img/tårnet.jpg}" alt="et billede af tårnet" class="image">
+                <a th:href="@{/attractions/Tårnet}">Beskrivelse</a></p>
             <footer>
                 <p>Lokation: <a href="#location">Danmark, København</a></p>
             </footer>

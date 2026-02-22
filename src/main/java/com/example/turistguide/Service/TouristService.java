@@ -1,9 +1,12 @@
 package com.example.turistguide.Service;
 
+import com.example.turistguide.Model.AttractionTags;
 import com.example.turistguide.Model.TouristAttraction;
 import com.example.turistguide.Repository.TouristRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.List;
 
 @Service
@@ -36,4 +39,14 @@ public class TouristService {
     public String deleteAttraction(String name){
         return repository.deleteAttraction(name);
     }
+
+    public void edit(TouristAttraction editedTouristAttraction){
+        repository.edit(editedTouristAttraction);
+    }
+
+    public List<AttractionTags> getTags(){
+        List<AttractionTags> allEnums = new ArrayList<>(EnumSet.allOf(AttractionTags.class));
+        return allEnums;
+    }
+
 }

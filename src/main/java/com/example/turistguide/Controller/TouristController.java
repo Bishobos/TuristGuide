@@ -42,6 +42,12 @@ public class TouristController {
         return "registration-form";
     }
 
+    @PostMapping("/add")
+    public String postAddAttraction(@ModelAttribute TouristAttraction touristAttraction){
+        service.addAttraction(touristAttraction);
+        return "redirect:/attractions";
+    }
+
     @GetMapping("/{name}/edit")
     public String editAttraction(@PathVariable String name, Model model){
         TouristAttraction attraction = service.getAttractionByName(name);
@@ -49,6 +55,13 @@ public class TouristController {
         model.addAttribute("tags", AttractionTags.values());
         return "edit-attraction";
     }
+
+    @PostMapping("/{name}/edit")
+    public String postEditAttraction(@ModelAttribute TouristAttraction editedTouristAttraction) {
+        service.edit(editedTouristAttraction);
+        return "redirect:/attractions";
+    }
+
 
     @PostMapping("/save")
     public String add(@ModelAttribute TouristAttraction touristAttraction){
@@ -68,11 +81,20 @@ public class TouristController {
         return "redirect:/attractions";
     }
 
+    @GetMapping("/delete/{name}")
+    public String getDeleteByName(@PathVariable("name") String attraction, Model model){
+        TouristAttraction touristAttraction = service.getAttractionByName(attraction);
+        model.addAttribute("attractionToDelete", touristAttraction);
+        return "confirmDelete";
+    }
+
+
     @GetMapping("/{name}/tags")
     public String getAttractionsTag(@PathVariable String name, Model model){
         TouristAttraction attraction = service.getAttractionByName(name);
-            model.addAttribute("attraction",attraction);
+            model.addAttribute("name",name);
             model.addAttribute("tags",attraction.getTags());
+            model.addAttribute("attraction", attraction);
         return "tags";
     }
 
