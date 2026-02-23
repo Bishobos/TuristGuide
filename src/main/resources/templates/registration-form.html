@@ -10,17 +10,17 @@
 <form action="#" th:action="@{/attractions/save}" th:object="${attraction}" method="post">
     <label>
         Name:
-        <input class="align" type="text" th:field="*{name}">
+        <input type="text" th:field="*{name}">
         <br>
     </label>
     <label>
         Description:
-        <input class="align" type="text" th:field="*{description}">
+        <input type="text" th:field="*{description}">
         <br>
     </label>
     <label>
         Location:
-        <input class="align" type="text" th:field="*{location}">
+        <input type="text" th:field="*{location}">
         <br>
     </label>
     <label>
