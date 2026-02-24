@@ -105,7 +105,7 @@ class TouristControllerTest {
                 .param("name", "name1")
                 .param("description", "description1")
                 .param("location", "location1")
-                .param("tags", "GRATIS"))
+                .param("tags", AttractionTags.values()[0].toString()))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("/attractions"));
 
@@ -116,7 +116,7 @@ class TouristControllerTest {
         assertEquals("name1", saved.getName());
         assertEquals("description1", saved.getDescription());
         assertEquals("location1", saved.getLocation());
-        assertEquals(List.of("GRATIS"), saved.getTags());
+        assertEquals(List.of(AttractionTags.values()[0].toString()), saved.getTags());
     }
     @Test
     void addNothing() throws Exception{
