@@ -36,7 +36,7 @@ public class TouristController {
         return "name-path";
     }
 
-}
+
 
     @GetMapping("/add")
     public String addAttraction(Model model){
