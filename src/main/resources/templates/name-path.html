@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="da" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${attraction.name}">Attraktion navn</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Velkommen til Turist Guiden</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Hjem</a></li>
+                <li><a href="#about">Om</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <header>
+                <h2 th:text="${attraction.name}">Attraktion navn</h2>
+            </header>
+
+            <p><strong>Beskrivelse: </strong><span th:text="${attraction.description}">Beskrivelse af attraktionen</span></p>
+
+            <p><strong>Lokation: </strong><span th:text="${attraction.location}">København, Danmark</span></p>
+
+
+            <a th:href="@{/attractions/{name}/edit(name=${attraction.name})}">
+                <button type="button">Opdater</button>
+            </a>
+
+            <form th:action="@{/attractions/delete/{name}(name=${attraction.name})}" method="post">
+                <button type="submit">Slet</button>
+            </form>
+
+        </article>
+
+        <a th:href="@{/attractions}">
+            <button type="button">Tilbage til liste</button>
+        </a>
+
+    </main>
+
+    <footer>
+        <ul>
+            <li>2026 Tourist Guide</li>
+            <li><a href="#contact">Kontaktinfo</a></li>
+        </ul>
+    </footer>
+</div>
