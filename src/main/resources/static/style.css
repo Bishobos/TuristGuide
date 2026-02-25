@@ -145,7 +145,7 @@ footer a {
     text-decoration: underline;
 }
 
-/*til show-attractions viewet */
+/*til vis tabel views */
 table, th, td{
     border-style: solid;
     border-color: black;
@@ -155,3 +155,13 @@ table, th, td{
 th, td {
     padding: 5px;
 }
+
+/* til register og edit form views */
+
+form input {
+    float: right;
+}
+
+
+
+
