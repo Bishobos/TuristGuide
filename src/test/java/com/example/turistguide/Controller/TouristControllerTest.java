@@ -95,10 +95,11 @@ class TouristControllerTest {
     }
 
     //can't figure out how to get it to work with the PathVariable
-    /*
+/*
     @Test
     void editAttraction() throws Exception{
-        mockMvc.perform(get("/attractions/{name}/edit"))
+        mockMvc.perform(get("/attractions/{name}/edit")
+                        .param("name", "name2"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("edit-attraction"))
                 .andExpect(model().attributeExists("attraction"))
@@ -107,7 +108,7 @@ class TouristControllerTest {
                 .andExpect(model().attribute("tags", AttractionTags.values()));
         verify(touristService).getAttractionByName("name2");
     }
-    */
+*/
 
     @Test
     void addSomething() throws Exception{
