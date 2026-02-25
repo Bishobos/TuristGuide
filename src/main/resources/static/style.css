@@ -156,6 +156,10 @@ th, td {
     padding: 5px;
 }
 
+table {
+    margin: 10px;
+}
+
 /* til register og edit form views */
 
 form input {
