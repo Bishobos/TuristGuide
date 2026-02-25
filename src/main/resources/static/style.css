@@ -159,7 +159,18 @@ th, td {
 /* til register og edit form views */
 
 form input {
+    width: 60%;
     float: right;
+
+}
+
+form {
+    margin-bottom: 40px;
+}
+
+button {
+    float: left;
+    margin: 5px;
 }
 
 
