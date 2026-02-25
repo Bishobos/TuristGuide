@@ -94,9 +94,21 @@ class TouristControllerTest {
                 .andExpect(model().attribute("tags", AttractionTags.values()));
     }
 
+    //can't figure out how to get it to work with the PathVariable
+/*
     @Test
-    void editAttraction() {
+    void editAttraction() throws Exception{
+        mockMvc.perform(get("/attractions/{name}/edit")
+                        .param("name", "name2"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("edit-attraction"))
+                .andExpect(model().attributeExists("attraction"))
+                .andExpect(model().attributeExists("tags"))
+                .andExpect(model().attribute("attraction", mockAttraction2))
+                .andExpect(model().attribute("tags", AttractionTags.values()));
+        verify(touristService).getAttractionByName("name2");
     }
+*/
 
     @Test
     void addSomething() throws Exception{
@@ -137,7 +149,24 @@ class TouristControllerTest {
     }
 
     @Test
-    void updateAttraction() {
+    void updateAttraction() throws Exception{
+        mockMvc.perform(post("/attractions/update")
+                        .contentType("application/x-www-form-urlencoded")
+                        .param("name", "name2")
+                        .param("description", "description2")
+                        .param("location", "location2")
+                        .param("tags", AttractionTags.values()[0].toString()))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/attractions"));
+
+        ArgumentCaptor<TouristAttraction> captor = ArgumentCaptor.forClass(TouristAttraction.class);
+        verify(touristService).updateAttraction(captor.capture());
+
+        TouristAttraction saved = captor.getValue();
+        assertEquals("name2", saved.getName());
+        assertEquals("description2", saved.getDescription());
+        assertEquals("location2", saved.getLocation());
+        assertEquals(List.of(AttractionTags.values()[0].toString()), saved.getTags());
     }
 
     @Test
