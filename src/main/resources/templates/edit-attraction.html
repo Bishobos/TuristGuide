@@ -2,30 +2,32 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Rediger attraktion</title>
     <link rel="stylesheet" th:href="@{/style.css}">
 
 </head>
 <body>
+<div class="edit-container">
+    <h1>Rediger attraktion</h1>
 
 <form action="#" th:action="@{/attractions/update}" th:object="${attraction}" method="post">
     <label>
-        Name:
+        Navn:
         <input type="text" th:field="*{name}" readonly>
         <br>
     </label>
     <label>
-        Description:
+        Beskrivelse:
         <input type="text" th:field="*{description}">
         <br>
     </label>
     <label>
-        Location:
+        Lokation:
         <input type="text" th:field="*{location}">
         <br>
     </label>
     <label>
-        Select tags:
+        Vælg tags:
         <select th:field="*{tags}" size="1" multiple>
             <option th:each="tag: ${tags}" th:value="${tag}" th:text="${tag}"></option>
         </select>

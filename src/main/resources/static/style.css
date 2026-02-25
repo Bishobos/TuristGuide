@@ -155,3 +155,27 @@ table, th, td{
 th, td {
     padding: 5px;
 }
+
+.edit-container{
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+}
+.edit-container h1 {
+    text-align: center;
+}
+
+.edit-container input,
+.edit-container select {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0 15px 0;
+    box-sizing: border-box;
+}
+
+.button-center {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}

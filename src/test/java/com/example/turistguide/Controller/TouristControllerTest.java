@@ -146,18 +146,13 @@ class TouristControllerTest {
 
     @Test
     void getAttractionsTag() {
-    }
-/*
-    @Test
-    void getAttractionsTag() throws Exception{
-        String attractionName ="Tivoli";
-        List<String> tags = Array.set("Børnevenlig", "En populær forlystelsespark");
-        TouristAttraction attraction = new TouristAttraction(attractionName,"En sjov park", "København",tags);
-        mockMvc.perform(get("/attractions/{name}/tags", attractionName))
-                .andExpect(status().isOk())
-                .andExpect(view().name("tags"));
-
+        String attractionName = "Tivoli";
+        TouristAttraction mockAttraction = new TouristAttraction(
+                "Tivoli",
+                "en forlystelsespark",
+                "københavn",
+                List.of("BØRNEVENLIG", "FORSLYSTELSESPARK")
+        );
     }
 
- */
 }
