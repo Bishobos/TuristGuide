@@ -1,6 +1,7 @@
 package com.example.turistguide.Model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -20,6 +21,21 @@ public class TouristAttraction {
         this.description = description;
         this.location = location;
         this.tags = tags;
+    }
+
+    /*
+    Clean this up.
+     */
+    public TouristAttraction(String name, String description, String location, String tags) {
+        this.name = name;
+        this.description = description;
+        this.location = location;
+        this.tags = unwrapTagsString(tags);
+    }
+
+    public List<String> unwrapTagsString(String tagsAsString){
+        String[] tags = tagsAsString.split(",");
+        return Arrays.asList(tags);
     }
 
     public TouristAttraction(){}
