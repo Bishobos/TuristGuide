@@ -2,15 +2,18 @@ package com.example.turistguide.Service;
 
 import com.example.turistguide.Model.TouristAttraction;
 import com.example.turistguide.Repository.TouristRepository;
+import com.example.turistguide.Repository.TouristRepositorySQL;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Transactional
 @Service
 public class TouristService {
-    private final TouristRepository repository;
+    private final TouristRepositorySQL repository;
 
-    public TouristService(TouristRepository repository){
+    public TouristService(TouristRepositorySQL repository){
         this.repository = repository;
     }
 

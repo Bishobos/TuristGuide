@@ -17,28 +17,22 @@ public class TouristRepositorySQL {
 
     public TouristAttraction getAttractionByName(String name){
         String sqlAttraction = String.format("select attractions.name as name, " +
-                "attractions.description as description, " +
                 "attractions.location as location, " +
-                "from attractions where attractions.name='%s'", name);
-
-        TouristAttraction attraction = jdbcTemplate.query(sqlAttraction, new AttractionRowMapper()).getFirst();
-
-        String sqlTags = String.format("select tags.name as name" +
-                "from attractions_tags join attractions" +
-                "on attractions.attraction_id = attractions_tags.attration_id" +
-                "and attractions.name = %s" +
-                "join tags" +
+                "attractions.description as description, " +
+                "tags.name as tags " +
+                "from attractions_tags join attractions " +
+                "on attractions.attraction_id = attractions_tags.attraction_id " +
+                "and attractions.name ='%s' " +
+                "join tags " +
                 "on tags.tags_id = attractions_tags.tags_id", name);
 
-        attraction.setTags(jdbcTemplate.query(sqlTags, new TagsRowMapper()).getFirst());
-
-        return attraction;
+        return jdbcTemplate.query(sqlAttraction, new AttractionRowMapper()).getFirst();
     }
 
     public List<TouristAttraction> getAttractions(){
-        String sqlNames = "select name from attractions.name";
+        String sqlNames = "select name from attractions";
 
-        List<String> names = jdbcTemplate.query(sqlNames, new NamesRowMapper());
+        List<String> names = jdbcTemplate.query(sqlNames, new SingleColoumnRowMapper());
 
         List<TouristAttraction> results = new ArrayList<>();
 
