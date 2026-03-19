@@ -5,6 +5,8 @@ import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AttractionRowMapper implements RowMapper<TouristAttraction> {
     @Override
@@ -12,9 +14,16 @@ public class AttractionRowMapper implements RowMapper<TouristAttraction> {
         return new TouristAttraction(
                 resultSet.getString("name"),
                 resultSet.getString("description"),
-                resultSet.getString("location"),
-                resultSet.getString("tags"));
+                resultSet.getString("location"));
     }
+
+    private void addTags(ResultSet resultSet, TouristAttraction attraction) throws SQLException{
+        do{
+            attraction.addTag(resultSet.getString("tags"));
+            resultSet.next();
+        } while(resultSet.getString("name").equals(attraction.getName()));
+    }
+
 }
 
 

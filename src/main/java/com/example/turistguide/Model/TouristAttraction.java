@@ -26,17 +26,16 @@ public class TouristAttraction {
     /*
     Clean this up.
      */
-    public TouristAttraction(String name, String description, String location, String tags) {
+    public TouristAttraction(String name, String description, String location) {
         this.name = name;
         this.description = description;
         this.location = location;
-        this.tags = unwrapTagsString(tags);
     }
 
-    public List<String> unwrapTagsString(String tagsAsString){
-        String[] tags = tagsAsString.split(",");
-        return Arrays.asList(tags);
+    public void addTag(String tag){
+        tags.add(tag);
     }
+
 
     public TouristAttraction(){}
 

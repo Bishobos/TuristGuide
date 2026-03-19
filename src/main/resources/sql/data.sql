@@ -40,4 +40,9 @@ insert into attractions(name, location, description) values
 ('Taarnet', 'Koebenhavn', 'Et gammelt Taarn');
 
 insert into attractions_tags (attraction_id, tags_id) values
-(1, 1);
+(1, 1),
+(1, 6),
+(2, 1),
+(3, 9);
+
+commit;
