@@ -17,13 +17,6 @@ public class AttractionRowMapper implements RowMapper<TouristAttraction> {
                 resultSet.getString("location"));
     }
 
-    private void addTags(ResultSet resultSet, TouristAttraction attraction) throws SQLException{
-        do{
-            attraction.addTag(resultSet.getString("tags"));
-            resultSet.next();
-        } while(resultSet.getString("name").equals(attraction.getName()));
-    }
-
 }
 
 
