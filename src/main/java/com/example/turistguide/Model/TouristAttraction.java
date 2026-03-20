@@ -23,9 +23,6 @@ public class TouristAttraction {
         this.tags = tags;
     }
 
-    /*
-    Clean this up.
-     */
     public TouristAttraction(String name, String description, String location) {
         this.name = name;
         this.description = description;
